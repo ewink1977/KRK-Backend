@@ -4,8 +4,8 @@
 	"description": "New version of my EmployeeBBS, using Django backend and React frontend!",
 	"main": "index.js",
 	"scripts": {
-		"dev": "webpack --mode development ./ebbs2/frontend/src/index.js --output-path ./ebbs2/frontend/static/frontend/main.js",
-		"build": "webpack --mode production ./ebbs2/frontend/src/index.js --output-path ./ebbs2/frontend/static/frontend/main.js"
+		"dev": "webpack --mode development ./ebbs2/frontend/src/index.js --output-path ./ebbs2/frontend/static/frontend/",
+		"build": "webpack --mode production ./ebbs2/frontend/src/index.js --output-path ./ebbs2/frontend/static/frontend/"
 	},
 	"author": "Erin Winking",
 	"license": "ISC",
@@ -20,6 +20,8 @@
 		"webpack-cli": "^4.7.2"
 	},
 	"dependencies": {
+		"@material-ui/core": "^4.11.4",
+		"@material-ui/icons": "^4.11.2",
 		"prop-types": "^15.7.2",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2"

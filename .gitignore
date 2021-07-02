@@ -142,6 +142,10 @@ cython_debug/
 #VSCode Files
 *.vscode*
 
+#We don't need to upload the media files...
+media/
+profilePics/
+
 # Created by https://www.toptal.com/developers/gitignore/api/react
 # Edit at https://www.toptal.com/developers/gitignore?templates=react
 

@@ -8,6 +8,10 @@ django = "*"
 djangorestframework = "*"
 django-rest-knox = "*"
 python-dotenv = "*"
+django-cors-headers = "*"
+django-imagekit = "*"
+django-storages = "*"
+pillow = "*"
 
 [dev-packages]
 
