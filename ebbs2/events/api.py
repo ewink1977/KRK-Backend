@@ -9,4 +9,3 @@ class EventViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = EventSerializer
-
