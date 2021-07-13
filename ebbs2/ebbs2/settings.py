@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'events',
     'user_profiles',
     'posts',
-    'frontend',
 ]
 
 MIDDLEWARE = [
