@@ -15,7 +15,8 @@ class Post(models.Model):
         )
     likes = models.ManyToManyField(
         User,
-        related_name = 'postLike'
+        related_name = 'postLike',
+        blank = True
     )
     content = models.TextField(max_length = 255)
     priority = models.IntegerField(default = 1)
