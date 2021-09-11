@@ -12,6 +12,7 @@ django-cors-headers = "*"
 django-imagekit = "*"
 django-storages = "*"
 pillow = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
