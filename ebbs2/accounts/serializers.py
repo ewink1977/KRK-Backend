@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from user_profiles.models import UserProfile
 
 # USER SERIALIZER
-
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,7 +13,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 # REGISTER SERIALIZER
 
-
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -21,13 +20,18 @@ class RegisterSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
+        # Create The User...
         user = User.objects.create_user(
             validated_data['username'], validated_data['email'], validated_data['password'])
+
+        # Now create their profile...
+        userProfile = UserProfile.objects.create(
+            user = user
+        )
 
         return user
 
 # LOGIN SERIALIZER
-
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()

@@ -20,8 +20,7 @@ class Post(models.Model):
     )
     content = models.TextField(max_length = 255)
     priority = models.IntegerField(default = 1)
-    # Witheld until proper permissions can be figured out.
-    # department = models.IntegerField(default = 1)
+    department = models.IntegerField(default = 1)
     is_reply = models.BooleanField(default = False)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)

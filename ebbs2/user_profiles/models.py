@@ -11,15 +11,14 @@ class UserProfile(models.Model):
         )
     position = models.CharField(max_length = 255, blank = True)
     bio = models.TextField(blank = True)
-    image = ProcessedImageField(default = 'default.jpg', 
+    image = ProcessedImageField(default = 'profilePics/default.jpg', 
         upload_to='profilePics', 
         processors=[ResizeToFit(500, 500)], 
         format='JPEG', 
         options={'quality': 80}
         )
-    # LEAVING THESE COMMENTED TILL I CAN BETTER UNDERSTAND PERMISSIONS WITH DRF API.
-    # department = models.IntegerField(default = 1)
-    # access_level = models.IntegerField(default = 1)
+    department = models.IntegerField(default = 1)
+    access_level = models.IntegerField(default = 1)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
 
