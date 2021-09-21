@@ -26,7 +26,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
 
     def __str__(self):
-        return f'POST'
+        return f'POST {self.id} by {self.author.username}'
 
 class PostReply(Post):
     parent = models.ForeignKey(
