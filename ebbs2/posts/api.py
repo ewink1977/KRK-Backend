@@ -3,7 +3,7 @@ from .models import Post, PostReply
 from rest_framework import viewsets, permissions
 from .serializers import PostSerializer, PostReplySerializer, AddPostSerializer
 
-# POST VIEWSET
+# POST VIEWSET  
 class AllPostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.filter(is_reply = False).order_by('created_at')
     permission_classes = [
@@ -24,6 +24,13 @@ class AddPostViewSet(viewsets.ModelViewSet):
     permission_classes = [
         permissions.AllowAny
     ]
+
+    def post(self, request, *args, **kwargs):
+        queryset = Post.objects.filter(is_reply = False).order_by('created_at')
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        post = serializer.save()
+        return queryset
 
 class SinglePostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
