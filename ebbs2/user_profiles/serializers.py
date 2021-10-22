@@ -4,7 +4,7 @@ from user_profiles.models import UserProfile
 from .models import UserProfile
 
 # PROFILE SERIALIZERS
-class UserProfileSerializer(serializers.ModelSerializer):
+class UserProfileDisplaySerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         depth = 1
@@ -12,14 +12,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 # POST-AUTHOR SERIALIZERS 
 # This data is needed to properly display posts.
-class userProfileSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ['image', 'department', 'access_level']
 
 class AuthorSerializer(serializers.ModelSerializer):
-    userProfile = userProfileSerializer()
+    user_profile = UserProfileSerializer()
     class Meta:
         model = User
         depth = 1
-        fields = ['id', 'username', 'first_name', 'last_name', 'userProfile']
+        fields = ['id', 'username', 'first_name', 'last_name', 'user_profile']

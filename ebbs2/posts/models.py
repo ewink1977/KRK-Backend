@@ -10,12 +10,12 @@ class Post(models.Model):
         )
     author = models.ForeignKey(
         User,
-        related_name = 'Post',
+        related_name = 'post',
         on_delete = models.CASCADE
         )
     likes = models.ManyToManyField(
         User,
-        related_name = 'postLike',
+        related_name = 'post_like',
         blank = True
     )
     content = models.TextField(max_length = 255)
@@ -31,7 +31,7 @@ class Post(models.Model):
 class PostReply(Post):
     parent = models.ForeignKey(
         Post,
-        related_name = 'PostReply', 
+        related_name = 'post_reply', 
         on_delete = models.CASCADE
     )
 

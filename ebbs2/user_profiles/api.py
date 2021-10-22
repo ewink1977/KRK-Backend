@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from .models import UserProfile
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
-from .serializers import AuthorSerializer, UserProfileSerializer
+from .serializers import AuthorSerializer, UserProfileDisplaySerializer
 
 # USER PROFILE VIEWSET
 class UserProfileViewSet(viewsets.ModelViewSet):
@@ -10,7 +10,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     permission_classes = [
         permissions.AllowAny
     ]
-    serializer_class = UserProfileSerializer
+    serializer_class = UserProfileDisplaySerializer
 
 class AllAuthorData(viewsets.ModelViewSet):
     queryset = User.objects.all()
